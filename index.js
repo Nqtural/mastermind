@@ -9,6 +9,20 @@ const color_picker = '\
 	</div>\
 ';
 
+function get_code() {
+	return Array.from(document.getElementById("set-code").children, li => li.firstElementChild.className);
+}
+
+document.getElementById("submit").addEventListener("click", () => {
+	const code = get_code();
+	if (code.includes("")) {
+		alert("You must set all colors!");
+	} else {
+		document.querySelector(".set-wrapper").style.display = "none";
+		document.querySelector(".guess-wrapper").style.display = "block";
+	}
+});
+
 document.querySelectorAll("span[clickable=true]").forEach(span => {
 	span.addEventListener("click", (e) => {
 		if (span.innerHTML === "") {
