@@ -1,9 +1,23 @@
+:root {
+	--empty: oklch(0.6534 0 0);
+	--red: oklch(0.6387 0.2037 24.45);
+	--green: oklch(0.7785 0.2165 145.4);
+	--blue: oklch(0.681 0.1359 248.38);
+	--yellow: oklch(0.9046 0.1717 105.02);
+	--white: oklch(0.9 0 0);
+	--black: oklch(0.36 0 0);
+	--outline: oklch(0.3694 0.0807 301);
+	--background: oklch(0.65 0.16 301);
+}
+
+
 body {
 	height: 100vh;
 	margin: 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background: var(--background);
 }
 
 main {
@@ -30,27 +44,39 @@ ul {
 }
 
 li {
-	display: contents;
+	display: flex;
+	background: var(--outline);
+	border-radius: 50%;
+	padding: 2px;
 }
 
 span {
-	width: 20px;
-	height: 20px;
+	width: 25px;
+	height: 25px;
+	box-sizing: border-box;
 	border-radius: 50%;
-	background: #ffffff;
-	border: 3px solid #dddddd;
+	--bg: var(--empty);
+	background: var(--bg);
+	border: 3px solid  oklch(from var(--bg) calc(l - 0.2) c h);
 }
 
 span[clickable=true] {
 	position: relative;
 }
 
+span.red { --bg: var(--red) }
+span.green { --bg: var(--green) }
+span.blue { --bg: var(--blue) }
+span.yellow { --bg: var(--yellow) }
+span.white { --bg: var(--white) }
+span.black { --bg: var(--black) }
+
 div.color-picker {
 	position: absolute;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 5px;
-	background: #333333;
+	background: var(--outline);
 	border-radius: 6px;
 	padding: 6px;
 	z-index: 1;
