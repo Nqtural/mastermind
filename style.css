@@ -12,6 +12,10 @@ main {
 	align-items: center;
 }
 
+div.guess-wrapper {
+	display: none;
+}
+
 article {
 	display: flex;
 	flex-direction: column;
